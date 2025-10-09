@@ -1,132 +1,104 @@
-# 🍏 Apple FireWire iSight on Windows
+# Apple FireWire iSight on Windows
 
-Make your **Apple iSight FireWire** webcam fully functional on modern versions of **Windows** using legacy **Unibrain ubCore** and **CMU 1394 Digital Camera** drivers — archived and preserved for the future.
+![Tested: Windows 10 x64](https://img.shields.io/badge/Tested-Windows%2010%20x64-blue)
+![Archive project](https://img.shields.io/badge/Archive-Project-lightgrey)
+![Status: Experimental](https://img.shields.io/badge/Status-Experimental-yellow)
 
----
+This repository preserves all known working (and partially working) FireWire (IEEE 1394) drivers for Windows —  
+collected from **Unibrain** and **Carnegie Mellon University (CMU)** websites.  
+It exists as an **archival project** to ensure that Apple FireWire iSight and other IEEE 1394 cameras  
+remain usable even if the original sources someday disappear.
 
-## 📸 About
-
-Apple’s **iSight FireWire camera** (2003) can still deliver excellent image quality — but under Windows it often appears **overexposed** when using the standard **Microsoft 1394 Legacy driver**.
-
-This repository collects and preserves **all known working FireWire (IEEE 1394) drivers and tools** that can help restore proper image quality and functionality of the Apple iSight camera on Windows systems.
-
-🧭 This is an **archival repository** — created to ensure these legacy drivers remain available even if the original download sources disappear.
-
----
-
-## 📦 Contents
-
-The archive includes all official and historical releases from two primary sources:
-
-### 🧩 Unibrain Drivers (ubCore / Fire-i / FireAPI)
-
-From [Unibrain’s official site](https://www.unibrain.com/downloads/):
-
-- **ubCore™ 6.00 Pro (x86/x64)** – FireWire 800 drivers (Vista/7/8/10)
-- **ubCore™ 6.00 (x86/x64)** – For end-users (webcams & storage)
-- **ubCore™ 5.80 Pro (x64)** – Legacy version (Vista–10)
-- **Fire-i™ 4.0** – Drivers & camera control application
-- **FireAPI™ 6.00 (Eval)** – 1394a/b development toolkit
-- **Fire-i API™ 4.0 (Eval)** – IIDC FireWire camera SDK
-- **Fire-i X™ 2.6 (Full)** – ActiveX / .NET control SDK
-
-⚠️ **Note:** Unibrain’s ubCore drivers are **unstable on Windows 10+**, frequently causing system crashes (BSOD).  
-However, they may work more reliably on **older Windows versions (XP–7)** and have historically been used to fix iSight’s exposure issue on those systems.
+📦 Repository: [https://github.com/Andrew-Dyachenko/apple-firewire-isight-on-windows](https://github.com/Andrew-Dyachenko/apple-firewire-isight-on-windows)
 
 ---
 
-### 🧠 CMU 1394 Digital Camera Driver (Carnegie Mellon University)
+## 💡 Purpose
 
-From [CMU Robotics Institute](https://www.cs.cmu.edu/~iwan/1394/downloads/index.html):
+This project was created primarily for enthusiasts who still use the legendary **Apple iSight FireWire camera (2003)**  
+on modern Windows systems.  
 
-Versions included:
-- `6.4.6 (signed)` – September 26, 2011  
-- `6.4.6 (unsigned)` – August 6, 2011  
-- `6.4.6 beta` – March 13, 2011  
-- `6.4.5` → `4.1` (2000–2008) – Full version history with source code
-
-Each release includes:
-- 📁 `1394cameraXXX.exe` — Driver installer  
-- 💾 `*_src.zip` — Original source code archives
+All drivers are stored here **as-is**, unmodified and unaltered, exactly as they were distributed by their authors.  
+I did not modify, recompile, or patch any of the files — only gathered them for long-term preservation.
 
 ---
 
-## ⚙️ Installation & Usage
+## 🧩 Included Drivers
 
-1. **Install the CMU 1394 Camera Driver**  
-   Use the latest signed version (`1394camera646.exe`).  
-   After installation, your iSight should appear in the **1394 Camera Demo** app.
+### From **Unibrain**
+Source: [https://www.unibrain.com/downloads/](https://www.unibrain.com/downloads/)
 
-2. **Check Image Quality**  
-   The overexposure issue should disappear — the image becomes properly exposed with natural contrast.
+- ubCore™ 6.00 (32-bit / 64-bit)
+- ubCore™ 6.00 Pro (32-bit / 64-bit)
+- ubCore™ 5.8 Pro (64-bit)
+- FireAPI™, Fire-i API™, Fire-i X™ SDKs (evaluation versions)
+- Fire-i™ 4.0 drivers & control application (32-bit / 64-bit)
 
-3. **Use with Other Apps (OBS, Telegram, Zoom, etc.)**  
-   The CMU driver doesn’t register a native DirectShow camera.  
-   You can work around this easily:
-   - Open **1394 Camera Demo**
-   - Capture its window in **OBS Studio**
-   - Start **OBS Virtual Camera**
-   - Select “OBS Virtual Camera” in Telegram / WhatsApp / Zoom
-
-✅ This setup makes the iSight FireWire camera usable again in 2025 — even on Windows 10.
+⚠️ **Note:** Unibrain ubCore drivers may cause system instability (BSOD)  
+**only when used with Apple FireWire iSight camera on Windows 10 x64**.  
+They should work properly on older Windows versions such as XP, Vista, 7, and 8.  
+This does **not** mean Unibrain’s software is faulty — the issue is specific to this combination of hardware and OS.
 
 ---
 
-## 🖼️ Image Comparison
+### From **Carnegie Mellon University (CMU)**
+Source: [https://www.cs.cmu.edu/~iwan/1394/downloads/index.html](https://www.cs.cmu.edu/~iwan/1394/downloads/index.html)
 
-| Microsoft 1394 Legacy Driver | CMU 1394 Camera Driver |
-|------------------------------|------------------------|
-| Overexposed, high contrast | Balanced, natural colors |
-
-*(See `/screenshots` folder for actual results.)*
+- CMU 1394 Digital Camera Driver versions **4.1 → 6.4.6** (including signed, unsigned, and beta builds)
+- Installation utilities and source code archives
 
 ---
 
-## 💾 Compatibility
+## 🧠 Compatibility
 
-| Windows Version | Status |
-|------------------|--------|
-| XP / Vista / 7 | 🟡 Likely compatible (per original driver documentation) |
-| 8 / 8.1 / 10 | 🟢 Personally tested on Windows 10 x64 — fully functional |
-| 11 | ⚠️ Untested (driver signing issues may require disabling Secure Boot) |
-
-> 📋 The drivers were designed for Windows XP–10 according to official documentation.  
-> This repository’s maintainer has **only tested on Windows 10 x64**.
+These drivers were **tested by me personally on Windows 10 64-bit**.  
+Earlier Windows versions (XP, Vista, 7, 8) are officially listed as supported by Unibrain and CMU,  
+so they should also be compatible in theory — but I have not tested them myself.
 
 ---
 
-## 📚 References
+## 🧰 Practical usage notes
 
-- [Using Firewire Apple iSight on Windows Vista/7](https://greenteapanda.wordpress.com/2009/02/12/using-firewire-apple-isight-on-windows-vista7/)
-- [Unibrain Official Downloads](https://www.unibrain.com/downloads/)
-- [CMU 1394 Camera Driver Project](https://www.cs.cmu.edu/~iwan/1394/downloads/index.html)
-- [Apple iSight FireWire Specs (EveryMac)](https://everymac.com/systems/by_capability/isight_specs.html)
+For the **CMU 1394 driver (6.4.6 signed)**, the Apple iSight FireWire camera produces a correct image  
+with balanced brightness and contrast.  
 
----
+If you use the **Microsoft 1394 Legacy driver**, the image may appear overexposed,  
+though it works in more applications (OBS, Telegram, etc.).  
 
-## 🧰 Archive Info
+To use the CMU driver effectively:
+- Open the `1394Camera Demo` application that comes with it  
+- Capture its window via **OBS Studio**
+- Enable **OBS Virtual Camera**
+- Select it in **Telegram**, **WhatsApp Desktop**, **Zoom**, or any other video chat app.
 
-This repository is **archival** — intended to preserve all related drivers, SDKs, and documentation for future users and enthusiasts of the Apple iSight FireWire camera.
-
-All files are provided **as-is** for educational and historical purposes.  
-Please respect the original authors’ licenses and copyrights.
-
----
-
-## 🪄 Credits
-
-- **Unibrain Ltd.** – ubCore, Fire-i, FireAPI drivers  
-- **Christopher R. Baker (CMU)** – CMU 1394 Digital Camera Driver  
-- **John Weekend** – Testing, documentation, and OBS virtual camera workaround
+It’s not the most convenient setup, but it’s a small price to pay for bringing a 2003 FireWire camera back to life in 2025!
 
 ---
 
-## 🪐 License
+## 📸 Before / After Example
 
-The repository itself (README and organization) is distributed under the **MIT License**.  
-Individual driver packages remain under their **original licenses**.
+*(Screenshots showing overexposed vs corrected image can be placed here later)*
 
 ---
 
-> 🧡 2003 hardware, 2025 usability.  
-> Thanks to community persistence, the Apple iSight FireWire camera still shines today.
+## 🧾 License notice
+
+All drivers remain under their **original authors’ licenses** —  
+Unibrain and Carnegie Mellon University retain all rights to their respective software.
+
+This repository itself (the collection and documentation) is provided under the  
+**MIT License**, purely for archival and educational purposes.
+
+---
+
+## 🤝 Community
+
+If you manage to improve stability, find newer driver versions, or successfully test  
+on other Windows releases — contributions and reports are welcome.  
+Please open an issue or pull request on GitHub.
+
+---
+
+**Maintained by:** [Andrew Dyachenko](https://github.com/Andrew-Dyachenko)  
+**Purpose:** Long-term preservation of legacy FireWire camera drivers  
+**Created:** 2025  
